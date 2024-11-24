@@ -82,11 +82,11 @@ const App = () => {
     </p>
     <p className="fancy-text">
       🚀 <span className="glow-text">Contract Address:</span>  
-      <span className="highlight-text" id="contract-address">0x123...Abc456</span>  
+      <span className="highlight-text" id="contract-address">F49...Abc456</span>  
       <button
         className="copy-btn"
         onClick={() => {
-          navigator.clipboard.writeText('0x123...Abc456');
+          navigator.clipboard.writeText('F498hs9GQon7SX4dwbWSuUJnERwnZLqamhFK7eiypump');
           alert('Address Copied! “Matryoshkas multiply; so do we!” 🚀');
         }}
       >
