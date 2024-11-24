@@ -1,38 +1,268 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Home Bölümü */
+.home {
+  background: url("/public/chillguy.gif") no-repeat center center/cover;
+  color: #fff;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%) contrast(110%);
 }
 
-.App-link {
-  color: #61dafb;
+/* Arka Plan Gölgelendirme */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Yarı saydam siyah overlay */
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* İçerik */
+.home .header,
+.home .footer {
+  z-index: 2; /* Overlay'in altında kalmaması için z-index */
+}
+
+.header {
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+  position: relative;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Yazıyı sol tarafından başlat */
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateX(0); /* Yazıyı normal yerine yerleştir */
+  }
+}
+
+.neon-text {
+  font-size: 60px;
+  font-weight: bold;
+  color: #000000;
+  font-family: 'Pacifico', cursive; /* Eğilimli ve el yazısı tarzı font */
+  text-shadow: 
+    0 0 5px #a57f42, 
+    0 0 10px #a57f42, 
+    0 0 20px #a57f42, 
+    0 0 30px #a57f42, 
+    0 0 40px #a57f42; /* Neon ve el yazısı efekti */
+  letter-spacing: 2px;
+  transform: rotate(-5deg); /* Eğik bir yazı efekti */
+  animation: slideIn 3s ease-out forwards; /* Yazının kayarak gelmesi */
+}
+
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+}
+
+.logos {
+  display: flex;
+  gap: 20px;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px #fff);
+}
+
+/* Neon Buton Efekti */
+.neon-button {
+  padding: 12px 25px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  box-shadow: 0 0 10px #0a0c0c, 0 0 20px #000000, 0 0 30px #ececec;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+
+/* Butona Hover ve Tıklama Efekti */
+.neon-button:hover {
+  transform: scale(1.1);
+  opacity: 1;  /* Hover durumunda daha belirgin olur */
+  box-shadow: 0 0 20px #1d2020, 0 0 30px #c1c2c4, 0 0 40px #e6e6e6;
+}
+
+
+
+
+/* about setion   */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Tam ekran görünüm */
+  background: linear-gradient(135deg, #a57f42, #a57f42); /* Oyun temalı gradyan arka plan */
+  position: relative; /* Overlay için konumlandırma */
+  padding: 20px;
+  filter: brightness(70%) contrast(110%);
+
+}
+
+/* Genel Stil */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Tam ekran görünüm */
+  background: linear-gradient(135deg, #a57f42, #a57f42); /* Oyun temalı gradyan arka plan */
+  position: relative;
+  padding: 20px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); /* İç gölge efekti */
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(165, 127, 66, 0.4); /* Yarı saydam a57f42 overlay */
+  z-index: 1; /* Overlay karttan aşağıda kalacak */
+  background: rgba(0, 0, 0, 0.4); /* Yarı saydam siyah overlay */}
+
+/* Kart Stil */
+.about-card {
+  position: relative; /* Overlay'den etkilenmesin */
+  z-index: 2; /* Kart, overlay üzerinde */
+  background: #1e272e; /* Koyu oyun temalı kart */
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.1);
+  text-align: center;
+  max-width: 700px;
+  color: #f5f5f5;
+  font-family: 'Poppins', sans-serif; /* Şık yazı tipi */
+  overflow: hidden;
+}
+
+/* Başlık Stili */
+.fancy-title {
+  font-size: 30px; /* Büyük bir başlık boyutu */
+  font-weight: bold;
+  color: #000000; /* Varsayılan metin rengi */
+  font-family: 'Pacifico', cursive; /* Eğilimli ve el yazısı tarzı font */
+  text-shadow: 
+    0 0 5px #a57f42, 
+    0 0 10px #a57f42, 
+    0 0 20px #a57f42, 
+    0 0 30px #a57f42, 
+    0 0 40px #a57f42; /* Neon ve el yazısı efekti */
+  letter-spacing: 2px; /* Harf aralığı */
+  transform: rotate(-5deg); /* Eğik bir yazı efekti */
+  animation: slideIn 3s ease-out forwards; /* Yazının kayarak gelmesi */
+}
+
+
+/* Paragraf Stili */
+.fancy-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #dcdde1; /* Hafif gri metin */
+  margin-bottom: 15px;
+  font-family: 'Roboto Mono', monospace; /* Kod hissiyatı veren yazı tipi */
+  text-align: justify;
+}
+
+/* Öne Çıkan Metin */
+.highlight-text {
+  color: #00cec9;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 206, 201, 0.8);
+}
+
+/* Neon Stil */
+.neon-accent {
+  color: #e84393; /* Parlak pembe */
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(232, 67, 147, 0.7), 0 0 15px rgba(232, 67, 147, 0.5);
+}
+
+/* Parlayan Yazı */
+.glow-text {
+  color: #f1c40f; /* Altın sarısı */
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.8), 0 0 20px rgba(241, 196, 15, 0.6);
+}
+
+/* Kopyala Butonu */
+.copy-btn {
+  background: #e74c3c; /* Parlak kırmızı */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn:hover {
+  background: #f39c12; /* Turuncuya geçiş */
+  transform: scale(1.05); /* Hafif büyüme efekti */
+}
+
+/* Meme Yazısı */
+.meme-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #a29bfe; /* Hafif mor ton */
+  margin-top: 15px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(162, 155, 254, 0.6);
+}
+/* Animasyonlu Şerit */
+.divider-animated {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, #060606, #a57f42, #a57f42);
+  background-size: 300% 100%; /* Gradyanı uzat */
+  animation: moveGradient 3s infinite;
+  z-index: 10;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

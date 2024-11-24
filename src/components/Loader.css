@@ -1,0 +1,22 @@
+/* loader.css */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a57f42; /* Hafif şeffaf bir arka plan */
+    z-index: 1000;
+  }
+  
+  .loader-image {
+    width: 100px; /* Görselin boyutunu ayarla */
+    height: 100px;
+    animation: bounce 15s infinite;
+  }
+
+  
